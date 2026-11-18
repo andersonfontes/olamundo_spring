@@ -3,6 +3,11 @@ package com.example.olamundo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import java.util.ArrayList;
+
+public record AlunoDto(String nome, String curso) {}
+List<AlunoDto> base_alunos = new ArrayList<>();
 
 @SpringBootApplication
 @RestController
@@ -23,6 +28,7 @@ public class OlamundoApplication {
 
     @PostMapping("/aluno")
     public String cadastrarAluno(@RequestBody AlunoRequest aluno) {
+        base_alunos.add(new AlunoDto(aluno.nome(), aluno.curso() ) );
         return "Aluno cadastrado com sucesso: " + aluno.nome() + " | Curso: " + aluno.curso();
     }
 
