@@ -1,0 +1,14 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+
+#Testar post do aluno
+POST http://localhost:8080/aluno
+Content-Type: application/json
+
+{
+  "nome" : "Carlos Silva",
+  "curso" : "Java 25 com Spring Boot"
+}
